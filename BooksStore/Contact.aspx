@@ -21,11 +21,21 @@
                 runat="server" />
         </div>
         <div class="col-6">
-            <asp:FileUpload
+            <label>Image (URL)</label>
+            <asp:TextBox
+                ValidationGroup="book"
+                ID="txtBookImage"
                 class="form-control"
-                ID="imbBookhImageFile"
-                runat="server" accept=".png,.jpg,.jpeg" onchange="ShowImage()" />
-            <asp:HiddenField ID="hfImage" runat="server" />
+                runat="server" />
+            <asp:RequiredFieldValidator
+                Display="Static"
+                CssClass="fa fa-asterisk"
+                Style="color: red"
+                ValidationGroup="book"
+                ID="RequiredFieldValidator16"
+                ErrorMessage="This field is required"
+                ControlToValidate="txtBookImage"
+                runat="server" />
         </div>
         <div class="col-6">
             <label>Synopsis</label>
@@ -46,30 +56,15 @@
         </div>
 
         <div class="col-6" id="divGenresContainer" runat="server">
-            <asp:CheckBox
-                class="form-check-input"
-                ID="cbCat1"
-                runat="server" />
-            <label class="form-check-label" for="flexCheckDefault">
-                Sci-fi
-            </label>
-            <asp:CheckBox
-                class="form-check-input"
-                ID="cbCat2"
-                runat="server" />
-            <label class="form-check-label" for="flexCheckDefault">
-                Action
-            </label>
-            <asp:CheckBox
-                class="form-check-input"
-                ID="cbCat3"
-                runat="server" />
-            <label class="form-check-label" for="flexCheckDefault">
-                Drama
-            </label>
         </div>
         <div class="col-3">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <asp:Button
+                OnClick="SendBookData_Click"
+                ValidationGroup="dish"
+                Text="SEND"
+                class="btn btn-primary"
+                ID="SendBookData"
+                runat="server" />
         </div>
     </div>
 

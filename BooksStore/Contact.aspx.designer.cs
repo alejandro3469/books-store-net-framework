@@ -33,22 +33,22 @@ namespace BooksStore
         protected global::System.Web.UI.WebControls.RequiredFieldValidator txtBookTitleValidator;
 
         /// <summary>
-        /// imbBookhImageFile control.
+        /// txtBookImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload imbBookhImageFile;
+        protected global::System.Web.UI.WebControls.TextBox txtBookImage;
 
         /// <summary>
-        /// hfImage control.
+        /// RequiredFieldValidator16 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfImage;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator16;
 
         /// <summary>
         /// txtBookSynopsis control.
@@ -78,30 +78,12 @@ namespace BooksStore
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divGenresContainer;
 
         /// <summary>
-        /// cbCat1 control.
+        /// SendBookData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbCat1;
-
-        /// <summary>
-        /// cbCat2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbCat2;
-
-        /// <summary>
-        /// cbCat3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbCat3;
+        protected global::System.Web.UI.WebControls.Button SendBookData;
     }
 }

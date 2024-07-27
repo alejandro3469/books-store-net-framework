@@ -42,5 +42,24 @@ namespace BooksStore.Business
                 throw new ApplicationException($"Error to add dish: {ex.Message}");
             }
         }
+
+        public void CreateBook(string bookName, string bookSynopsis, string bookImage)
+        {
+            try
+            {
+                var booksStoreDataObject = new BooksStoreData();
+                var GenresDataTable = booksStoreDataObject.GetGenres();
+                booksStoreDataObject.CreateBook(bookName, bookSynopsis, bookImage);
+            }
+            catch (ApplicationException ex)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException($"Error to add book: {ex.Message}");
+            }
+        }
+
     }
 }

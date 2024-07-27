@@ -35,5 +35,26 @@ namespace BooksStore.Data
                 throw new ApplicationException($"Error to get genres: {ex.Message}");
             }
         }
+        public void CreateBook(string bookName, string bookSynopsis, string bookImage)
+        {
+            try
+            {
+                var connection = new SqlConnection(ConnectionString);
+                var command = new SqlCommand("spCreateBook", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter() { ParameterName = "book_name", DbType = DbType.String, Value = bookName });
+                command.Parameters.Add(new SqlParameter() { ParameterName = "book_synopsis", DbType = DbType.String, Value = bookSynopsis });
+                command.Parameters.Add(new SqlParameter() { ParameterName = "book_image", DbType = DbType.String, Value = bookImage });
+
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+                var script = $"alert('The book {bookName} was added successfully')";
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException($"Error to add book, id: : {ex.Message}");
+            }
+        }
     }
 }

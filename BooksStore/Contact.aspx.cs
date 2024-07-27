@@ -42,16 +42,22 @@ namespace BooksStore
             try
             {
                 var BooksStoreBusinessObject = new BooksStoreBusiness();
-                var categories = new List<GenreModel>();
+                var SelectedGenresList = new List<GenreModel>();
 
-                var genres = BooksStoreBusinessObject.GetGenres();
+               
+                var bookTitle = txtBookTitle.Text.ToString();
+                var bookSynopsis = txtBookSynopsis.Text.ToString();
+                var bookImage = txtBookImage.Text.ToString();
 
-                foreach (var genre in genres)
+                BooksStoreBusinessObject.CreateBook(bookTitle, bookSynopsis, bookImage);
+
+                var genresFullList = BooksStoreBusinessObject.GetGenres();
+
+                foreach (var genre in genresFullList)
                 {
                     CheckBox selectedGenreCheckbox = (CheckBox)divGenresContainer.FindControl($"Genre{genre.Id}");
                     if (selectedGenreCheckbox.Checked) {
-
-                        var SelectedGenreId = genre.Id;
+                        SelectedGenresList.Add(genre);
                     }
                         
                 }
@@ -61,6 +67,11 @@ namespace BooksStore
                 var script = $"alert(Error: {ex.Message.Replace("'", "")})";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Error", script, true);
             }
+        }
+
+        protected void SendBookData_Click(object sender, EventArgs e)
+        {
+            SendData();
         }
     }
 }
